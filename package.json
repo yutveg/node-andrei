@@ -1,0 +1,23 @@
+{
+  "name": "andrei",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yutveg/node-andrei.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yutveg/node-andrei/issues"
+  },
+  "homepage": "https://github.com/yutveg/node-andrei#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
