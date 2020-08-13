@@ -17,27 +17,74 @@
 
 const fs = require('fs')
 
-fs.readFile('./exercise.txt', (err, data) => {
-    if (err) {
-        console.log(err)
-    } 
-
-    const dataString = data.toString()
-    let floorNumber = 0;
-
-    for (let i = 0; i < dataString.length; i++){
-        if (dataString[i] === '('){
-            floorNumber += 1
+function myImplementExerciseOne() {
+    fs.readFile('./exercise.txt', (err, data) => {
+        if (err) {
+            console.log(err)
         } 
-        else if (dataString[i] === ')'){
-            floorNumber -= 1
+    
+        const dataString = data.toString()
+        let floorNumber = 0;
+    
+        for (let i = 0; i < dataString.length; i++){
+            if (dataString[i] === '('){
+                floorNumber += 1
+            } 
+            else if (dataString[i] === ')'){
+                floorNumber -= 1
+            }
         }
+    
+        console.log("Final floor:", floorNumber)
+    })
+}
 
-        if(floorNumber === -1){
-            console.log("Entered basement", i + 1)
-            break
+function myImplementExerciseTwo() {
+    fs.readFile('./exercise.txt', (err, data) => {
+        if (err) {
+            console.log(err)
+        } 
+    
+        const dataString = data.toString()
+        let floorNumber = 0;
+    
+        for (let i = 0; i < dataString.length; i++){
+            if (dataString[i] === '('){
+                floorNumber += 1
+            } 
+            else if (dataString[i] === ')'){
+                floorNumber -= 1
+            }
+    
+            if(floorNumber === -1){
+                console.log("Entered basement:", i + 1)
+                break
+            }
         }
-    }
+    })
+}
 
-    console.log(floorNumber)
-})
+function doSomethingWithResult(value){
+    console.log(value)
+    return value
+}
+
+function andreiImplementExercise() {
+    fs.readFile('./exercise.txt', (err, data) => {
+        const directions = data.toString();
+        const directionsArray = directions.split('');
+        let value = directionsArray.reduce((acc, currentValue) => {
+            if (currentValue === '('){
+                return acc += 1
+            } 
+            else if (currentValue === ')'){
+                return acc -= 1
+            }
+        }, 0)
+        doSomethingWithResult(value)
+    })
+}
+
+myImplementExerciseOne()
+myImplementExerciseTwo()
+andreiImplementExercise()
