@@ -1,10 +1,19 @@
-const http = require('http')
+const express = require('express');
 
-const server = http.createServer((request, response) => {
-    console.log("method", request.method)
-    console.log("url", request.url)
-    response.setHeader('Content-Type', 'text/html');
-    response.end("<h1>Hellooooo</h1>")
+const app = express();
+
+
+app.use(express.json())
+
+//console.log(req.query) -> access url query string /?<key>:<value>&<key>:<value>
+//console.log(req.body) -> access whatever data sent on request
+//console.log(req.headers) -> access browser headers
+//console.log(req.params) -> access params sent on url /:someResourceIdentifier
+
+app.use(express.static(__dirname + '/public'))
+
+app.post('/profile', (req, res) => {
+    res.send(req.body)
 })
 
-server.listen(3000);
+app.listen(3000);
